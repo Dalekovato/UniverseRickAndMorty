@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UniverseRickAndMorty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_status">status</string>
+    <string name="hint_specied">specied</string>
 </resources>
