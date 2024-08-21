@@ -8,4 +8,5 @@ interface ICharacterApiService {
 
     @GET("api/character")
     fun getCharacter(): Single<List<CharacterDto>>
+
 }
