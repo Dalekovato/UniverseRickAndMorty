@@ -1,13 +1,14 @@
 package com.example.universerickandmorty.domain.model
 
 import android.os.Parcelable
+import com.example.universerickandmorty.data.dto.StatusImg
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class CharacterDomain(
     val id: Int,
     val name: String,
-    val status: String,
+    val status: StatusImg,
     val species: String,
     val type: String,
     val gender: String,

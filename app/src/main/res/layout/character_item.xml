@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/img_photo"
+        android:id="@+id/imgPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,40 +26,52 @@
         android:hint="@string/hint_name"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_photo"
+        app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_status"
+<!--    <ImageView-->
+<!--        android:id="@+id/imgStatus"-->
+<!--        android:layout_width="18dp"-->
+<!--        android:layout_height="18dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        app:tint="@color/green"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imgPhoto"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvName"-->
+<!--        app:srcCompat="@drawable/ic_alive" />-->
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgStatus"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/img_photo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:tint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/imgPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
         app:srcCompat="@drawable/ic_alive" />
 
     <TextView
-        android:id="@+id/tv_status"
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/hint_status"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/img_status"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        app:layout_constraintStart_toEndOf="@+id/imgStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
-        android:id="@+id/tv_species"
+        android:id="@+id/tvSpecies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/hint_specied"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_status"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        app:layout_constraintStart_toEndOf="@+id/tvStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

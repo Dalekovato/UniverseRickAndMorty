@@ -5,7 +5,7 @@ import com.example.universerickandmorty.data.dto.CharacterDto
 class CharacterMapper(characterDto: List<CharacterDto>?) {
 
     val character by lazy {
-        characterDto?.filterNotNull()?.map {
+        characterDto?.map {
             CharMapper(it).char
         }?: emptyList()
 

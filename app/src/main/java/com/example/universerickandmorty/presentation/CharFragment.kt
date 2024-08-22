@@ -17,8 +17,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 class CharFragment : Fragment() {
-
+    // Через инжект создать вью мождель , в onViewCreated пишу вью модел . и метод для запуска загрузки создать во вью моделе метод загрузки ,
     private lateinit var binding: FragmentCharBinding
+    // в di когда подключаю дагер делаю запрос
+    //как через дагер дбавит ретрофит
 
 
 
@@ -29,11 +31,14 @@ class CharFragment : Fragment() {
     ): View {
         binding = FragmentCharBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.loadCharacterItem()
 
     }
 

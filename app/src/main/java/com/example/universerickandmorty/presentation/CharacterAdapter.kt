@@ -1,29 +1,41 @@
 package com.example.universerickandmorty.presentation
 
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.universerickandmorty.R
-import com.example.universerickandmorty.databinding.CharacterAdapterBinding
+import com.example.universerickandmorty.data.dto.StatusImg
+import com.example.universerickandmorty.databinding.CharacterItemBinding
 
 class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Comparator()) {
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val binding = CharacterAdapterBinding.bind(view)
+        private val binding = CharacterItemBinding.bind(view)
 
-        fun bind(item: CharacterModel) = with(binding) {
-
+        fun bind(model: CharacterModel) = with(binding) {
+            //глайд библиотека для имг
+            //контекст брать через биндинг.рут.контекст
             //imgPhoto
-            tvName.text = item.tvName
-            // imgStatus: String,
-            tvStatus.text = item.tvStatus
-            tvSpecies.text = item.tvSpecies
+
+            tvName.text = model.tvName
+            tvStatus.text = model.tvStatus.value
+            tvSpecies.text = model.tvSpecies
+
+            when (model.tvStatus) {
+                StatusImg.ALIVE -> imgStatus.setColorFilter(R.color.green, PorterDuff.Mode.MULTIPLY)
+                StatusImg.DEAD -> imgStatus.setColorFilter(R.color.red, PorterDuff.Mode.MULTIPLY)
+                StatusImg.UNKNOWN -> imgStatus.isVisible = false
+
+            }
 
         }
+
     }
 
     class Comparator : DiffUtil.ItemCallback<CharacterModel>() {
@@ -39,7 +51,7 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view  = LayoutInflater.from(parent.context).inflate(R.layout.character_adapter,parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.character_item, parent, false)
         return Holder(view)
     }
 
