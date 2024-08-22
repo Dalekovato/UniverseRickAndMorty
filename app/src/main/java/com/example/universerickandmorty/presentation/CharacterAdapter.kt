@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.universerickandmorty.R
 import com.example.universerickandmorty.data.dto.StatusImg
 import com.example.universerickandmorty.databinding.CharacterItemBinding
@@ -19,9 +20,11 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
         private val binding = CharacterItemBinding.bind(view)
 
         fun bind(model: CharacterModel) = with(binding) {
-            //глайд библиотека для имг
-            //контекст брать через биндинг.рут.контекст
-            //imgPhoto
+
+            Glide // для загрузки фото
+                .with(binding.root.context)
+                .load(model.imgPhoto)
+                .into(imgPhoto)
 
             tvName.text = model.tvName
             tvStatus.text = model.tvStatus.value

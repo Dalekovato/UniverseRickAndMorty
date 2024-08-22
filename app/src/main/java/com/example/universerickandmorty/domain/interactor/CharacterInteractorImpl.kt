@@ -10,7 +10,6 @@ class CharacterInteractorImpl (
 
 
 
-
     override fun getCharacters(): Single<List<CharacterDomain>> {
         return characterRepository.getCharacterRepository()
     }
