@@ -20,7 +20,7 @@ class CharFragment : Fragment() {
     // Через инжект создать вью мождель , в onViewCreated пишу вью модел . и метод для запуска загрузки создать во вью моделе метод загрузки ,
     private lateinit var binding: FragmentCharBinding
     // в di когда подключаю дагер делаю запрос
-    //как через дагер дбавит ретрофит
+    //как через дагер дбавит ретрофит Retrofit 2 & Dagger-Hilt
 
 
 
@@ -38,7 +38,6 @@ class CharFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadCharacterItem()
 
     }
 
