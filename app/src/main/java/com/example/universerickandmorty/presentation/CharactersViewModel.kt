@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
+import com.example.universerickandmorty.domain.interactor.CharacterInteractorImpl
 import com.example.universerickandmorty.domain.model.CharacterDomain
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,13 +13,12 @@ import io.reactivex.schedulers.Schedulers.io
 import javax.inject.Inject
 
 @HiltViewModel
-class CharactersViewModel
-@Inject constructor(
-    private val characterInteractor: ICharacterInteractor
-):ViewModel() {
+class CharactersViewModel @Inject constructor (private val characterInteractor: CharacterInteractorImpl):ViewModel() {
+
 
     private val _char = MutableLiveData<List<CharacterDomain>>()
-    val char: LiveData<List<CharacterDomain>> = _char
+    val char: LiveData<List<CharacterDomain>>
+        get() = _char
 
     private val dispose = CompositeDisposable()
 
@@ -39,6 +38,7 @@ class CharactersViewModel
         super.onCleared()
         dispose.clear()
     }
+
 
 
 }

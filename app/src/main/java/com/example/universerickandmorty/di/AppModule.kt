@@ -1,5 +1,8 @@
 package com.example.universerickandmorty.di
 
+import androidx.appcompat.widget.ThemedSpinnerAdapter.Helper
+import com.example.universerickandmorty.data.ICharacterApiService
+import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
 import com.example.universerickandmorty.helper.Constants
 import com.example.universerickandmorty.helper.MyApp
 import dagger.Module
@@ -25,6 +28,7 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MyApp::class.java)
+
 
 
 }

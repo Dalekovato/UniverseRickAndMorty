@@ -2,8 +2,9 @@ package com.example.universerickandmorty.domain.mapper
 
 import com.example.universerickandmorty.data.dto.LocationDto
 import com.example.universerickandmorty.domain.model.LocationDomain
+import javax.inject.Inject
 
-class LocationMapper(locationDto: LocationDto?) {
+class LocationMapper@Inject constructor(locationDto: LocationDto?) {
 
     val loc by lazy {
         LocationDomain(

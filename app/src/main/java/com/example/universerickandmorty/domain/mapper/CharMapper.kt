@@ -3,8 +3,9 @@ package com.example.universerickandmorty.domain.mapper
 import com.example.universerickandmorty.data.dto.CharacterDto
 import com.example.universerickandmorty.data.dto.StatusImg
 import com.example.universerickandmorty.domain.model.CharacterDomain
+import javax.inject.Inject
 
-class CharMapper(characterDto: CharacterDto) {
+class CharMapper@Inject constructor(characterDto: CharacterDto) {
 
     val char by lazy {
 

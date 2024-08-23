@@ -1,31 +1,29 @@
 package com.example.universerickandmorty.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.universerickandmorty.R
-import com.example.universerickandmorty.data.ICharacterApiService
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.universerickandmorty.databinding.FragmentCharBinding
 import dagger.hilt.android.scopes.FragmentScoped
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
-
-
 
 @FragmentScoped
 class CharFragment : Fragment() {
-    // Через инжект создать вью мождель , в onViewCreated пишу вью модел . и метод для запуска загрузки создать во вью моделе метод загрузки ,
-    private lateinit var binding: FragmentCharBinding
-    // в di когда подключаю дагер делаю запрос
-    //как через дагер дбавит ретрофит Retrofit 2 & Dagger-Hilt
 
+
+    private lateinit var binding: FragmentCharBinding
+    private val viewModel : CharactersViewModel by viewModels()
+    private lateinit var characterAdapter: CharacterAdapter
+
+    // Через инжект создать вью мождель , в onViewCreated пишу вью модел . и метод для запуска загрузки создать во вью моделе метод загрузки ,
+
+
+    //как через Dagger-Hilt дбавит Retrofit
+
+    //лайв дата передает данные во фрагмент и во фрагменте подписываюсь на лайф дату . и данные передать в адаптер на отрисовку
 
 
 
