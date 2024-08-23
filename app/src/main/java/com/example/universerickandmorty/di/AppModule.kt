@@ -19,9 +19,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(BASE_URL: String): MyApp =
+    fun provideRetrofitInstance(provideBaseUrl: String): MyApp =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(provideBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MyApp::class.java)

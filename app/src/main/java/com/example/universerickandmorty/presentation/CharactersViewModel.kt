@@ -10,13 +10,16 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers.io
+import javax.inject.Inject
 
 @HiltViewModel
-class CharacterViewModel (
-    private val characterInteractor: ICharacterInteractor):ViewModel() {
+class CharactersViewModel
+@Inject constructor(
+    private val characterInteractor: ICharacterInteractor
+):ViewModel() {
 
-    private val _char = MutableLiveData<CharacterModel>()
-    val char: LiveData<CharacterModel> = _char
+    private val _char = MutableLiveData<List<CharacterDomain>>()
+    val char: LiveData<List<CharacterDomain>> = _char
 
     private val dispose = CompositeDisposable()
 
@@ -24,9 +27,8 @@ class CharacterViewModel (
         characterInteractor.getCharacters()
             .subscribeOn(io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ char->
+            .subscribe({char ->
                 _char.postValue(char)
-                //лайв дата передает данные во фрагмент и во фрагменте подписываюсь на лайф дату . и данные передать в адаптер на отрисовку
             },{
                 Log.d("CharacerViewModel", "Error ${char}")
             }).also { dispose.add(it) }
