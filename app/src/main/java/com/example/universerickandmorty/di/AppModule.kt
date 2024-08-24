@@ -34,9 +34,6 @@ object AppModule {
     fun provideICharacterApiService(retrofit: Retrofit):ICharacterApiService =
         retrofit.create(ICharacterApiService::class.java)
 
-    @Provides
-    fun provideICharacterInteractor(retrofit: Retrofit): ICharacterInteractor =
-        retrofit.create(ICharacterInteractor::class.java)
 
 
 }
