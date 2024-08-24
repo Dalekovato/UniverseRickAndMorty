@@ -1,10 +1,9 @@
 package com.example.universerickandmorty.di
 
-import androidx.appcompat.widget.ThemedSpinnerAdapter.Helper
 import com.example.universerickandmorty.data.ICharacterApiService
 import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
 import com.example.universerickandmorty.helper.Constants
-import com.example.universerickandmorty.helper.MyApp
+import com.example.universerickandmorty.helper.MyAppService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,15 +19,24 @@ object AppModule {
     @Provides
     fun provideBaseUrl() = Constants.BASE_URL
 
+
     @Provides
     @Singleton
-    fun provideRetrofitInstance(provideBaseUrl: String): MyApp =
+    fun provideRetrofitInstance(provideBaseUrl: String): Retrofit =
         Retrofit.Builder()
             .baseUrl(provideBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(MyApp::class.java)
 
+
+
+    @Provides
+    fun provideICharacterApiService(retrofit: Retrofit):ICharacterApiService =
+        retrofit.create(ICharacterApiService::class.java)
+
+    @Provides
+    fun provideICharacterInteractor(retrofit: Retrofit): ICharacterInteractor =
+        retrofit.create(ICharacterInteractor::class.java)
 
 
 }

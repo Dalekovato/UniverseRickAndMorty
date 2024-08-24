@@ -4,7 +4,7 @@ import com.example.universerickandmorty.data.dto.OriginDto
 import com.example.universerickandmorty.domain.model.OriginDomain
 import javax.inject.Inject
 
-class OriginMapepr@Inject constructor(originDto: OriginDto?) {
+class OriginMapepr(originDto: OriginDto?) {
 
 
     val orig by lazy {

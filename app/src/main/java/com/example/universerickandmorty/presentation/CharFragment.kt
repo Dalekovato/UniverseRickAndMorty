@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.universerickandmorty.databinding.FragmentCharBinding
+import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.android.scopes.FragmentScoped
 
-@FragmentScoped
+@ActivityScoped
 class CharFragment : Fragment() {
 
 

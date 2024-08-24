@@ -6,7 +6,7 @@ import dagger.Component
 import io.reactivex.Single
 import retrofit2.http.GET
 
-@Component
+
 interface ICharacterApiService {
 
     @GET(Constants.END_POINT)
