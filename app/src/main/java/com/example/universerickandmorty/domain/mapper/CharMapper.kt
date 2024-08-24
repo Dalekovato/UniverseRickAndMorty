@@ -5,7 +5,7 @@ import com.example.universerickandmorty.data.dto.StatusImg
 import com.example.universerickandmorty.domain.model.CharacterDomain
 import javax.inject.Inject
 
-class CharMapper@Inject constructor(characterDto: CharacterDto) {
+class CharMapper(characterDto: CharacterDto) {
 
     val char by lazy {
 

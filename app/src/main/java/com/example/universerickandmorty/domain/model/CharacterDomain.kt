@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import javax.inject.Inject
 
 @Parcelize
-class CharacterDomain@Inject constructor(
+class CharacterDomain(
     val id: Int,
     val name: String,
     val status: StatusImg,

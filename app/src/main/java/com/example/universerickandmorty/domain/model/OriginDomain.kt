@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import javax.inject.Inject
 
 @Parcelize
-class OriginDomain @Inject constructor(
+class OriginDomain(
 
     val name: String,
     val url: String

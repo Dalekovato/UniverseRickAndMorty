@@ -6,7 +6,7 @@ import dagger.Provides
 import io.reactivex.Single
 import javax.inject.Inject
 
-@Component
+
 interface ICharacterInteractor  {
 
     fun getCharacters(): Single<List<CharacterDomain>>
