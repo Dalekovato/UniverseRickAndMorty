@@ -10,7 +10,9 @@ import javax.inject.Inject
 
 interface ICharacterInteractor  {
 
-    fun getCharacters(): Single<List<CharacterDomain>>
+
+    fun getCharacters(): Single<List<CharacterModel>>
+
 
 
 }

@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.universerickandmorty.databinding.FragmentCharBinding
+import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ActivityScoped
 
-@ActivityScoped
+@AndroidEntryPoint
 class CharFragment : Fragment() {
 
     private lateinit var binding: FragmentCharBinding
@@ -32,10 +33,10 @@ class CharFragment : Fragment() {
 
         init()
 
-        viewModel.char.observe(viewLifecycleOwner){
 
-        }
-
+            viewModel.char.observe(viewLifecycleOwner){
+                characterAdapter.submitList(it)
+            }
 
     }
 

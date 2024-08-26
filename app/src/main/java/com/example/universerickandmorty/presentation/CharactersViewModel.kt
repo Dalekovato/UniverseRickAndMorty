@@ -13,12 +13,13 @@ import io.reactivex.schedulers.Schedulers.io
 import javax.inject.Inject
 
 @HiltViewModel
-class CharactersViewModel @Inject constructor (private val characterInteractor: CharacterInteractorImpl):ViewModel() {
+class CharactersViewModel @Inject constructor (private val characterInteractor: CharacterInteractorImpl): ViewModel() {
 
 
 
-    private val _char = MutableLiveData<List<CharacterDomain>>()
-    val char: LiveData<List<CharacterDomain>>
+
+    private val _char = MutableLiveData<List<CharacterModel>>()
+    val char: LiveData<List<CharacterModel>>
         get() = _char
 
     private val dispose = CompositeDisposable()
