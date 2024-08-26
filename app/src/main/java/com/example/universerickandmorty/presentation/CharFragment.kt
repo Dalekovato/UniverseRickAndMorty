@@ -31,20 +31,24 @@ class CharFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         init()
+
         viewModel.char.observe(viewLifecycleOwner){
-            characterAdapter.submitList()
+
         }
 
+
     }
+
+
 
 
     private fun init() = with(binding){
      characterAdapter = CharacterAdapter()
-     rvChar.layoutManager = LinearLayoutManager(activity)
-      rvChar.adapter = characterAdapter
+     rcChar.layoutManager = LinearLayoutManager(activity)
+     rcChar.adapter = characterAdapter
 
     }
 
-    }
 
+}
 

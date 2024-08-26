@@ -16,6 +16,7 @@ import javax.inject.Inject
 class CharactersViewModel @Inject constructor (private val characterInteractor: CharacterInteractorImpl):ViewModel() {
 
 
+
     private val _char = MutableLiveData<List<CharacterDomain>>()
     val char: LiveData<List<CharacterDomain>>
         get() = _char
