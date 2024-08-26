@@ -21,6 +21,7 @@ class CharacterInteractorImpl
                         tvStatus = characterDomain.status,
                         tvSpecies = characterDomain.species
                     )
+
                 }
             }
     }
