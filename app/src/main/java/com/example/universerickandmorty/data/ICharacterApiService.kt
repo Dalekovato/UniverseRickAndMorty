@@ -12,4 +12,5 @@ interface ICharacterApiService {
     @GET(Constants.END_POINT)
     fun getCharacter(): Single<List<CharacterDto>>
 
+
 }
