@@ -3,12 +3,10 @@ package com.example.universerickandmorty.domain.mapper
 import com.example.universerickandmorty.data.dto.CharacterDto
 import com.example.universerickandmorty.data.dto.StatusImg
 import com.example.universerickandmorty.domain.model.CharacterDomain
-import javax.inject.Inject
 
 class CharMapper(characterDto: CharacterDto) {
 
     val char by lazy {
-
         CharacterDomain(
             id = characterDto.id ?: 0,
             name = characterDto.name.orEmpty(),
