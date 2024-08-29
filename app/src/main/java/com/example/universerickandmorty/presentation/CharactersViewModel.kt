@@ -30,10 +30,15 @@ class CharactersViewModel @Inject constructor (private val characterInteractor: 
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({char ->
                 _char.postValue(char)
+                Log.d("CharacerViewModel", "Error ${char}")
             },{
                 Log.d("CharacerViewModel", "Error ${char}")
             }).also { dispose.add(it) }
+
+        Log.d("CharacerViewModel", "${char}")
     }
+
+
 
 
     override fun onCleared() {

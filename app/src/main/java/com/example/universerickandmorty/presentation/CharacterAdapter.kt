@@ -1,6 +1,7 @@
 package com.example.universerickandmorty.presentation
 
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
             tvName.text = model.tvName
             tvStatus.text = model.tvStatus.value
             tvSpecies.text = model.tvSpecies
+
 
             when (model.tvStatus) {
                 StatusImg.ALIVE -> imgStatus.setColorFilter(R.color.green, PorterDuff.Mode.MULTIPLY)
