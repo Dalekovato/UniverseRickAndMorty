@@ -6,7 +6,6 @@ plugins {
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
 
 }
 
@@ -43,6 +42,7 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
 }
 
 
@@ -61,16 +61,23 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.3.0")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    implementation("com.google.dagger:hilt-android:2.46.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.46.1")
-
+    implementation("io.insert-koin:koin-android:3.5.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
+
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+
+
 
 }

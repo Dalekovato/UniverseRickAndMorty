@@ -1,9 +1,8 @@
 package com.example.universerickandmorty.data.dto
 
 import com.google.gson.annotations.SerializedName
-import javax.inject.Inject
 
-class CharacterDto (
+data class CharacterDto (
 
     @SerializedName("id") val id: Int?,
     @SerializedName("name") val name: String?,

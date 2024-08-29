@@ -6,18 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.universerickandmorty.databinding.FragmentCharBinding
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.scopes.ActivityScoped
-import dagger.hilt.android.scopes.FragmentScoped
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class CharFragment : Fragment() {
 
     private lateinit var binding: FragmentCharBinding
-    private val viewModel: CharactersViewModel by viewModels()
+    private val viewModel: CharactersViewModel by viewModel()
     private lateinit var characterAdapter: CharacterAdapter
 
     override fun onCreateView(
@@ -34,12 +30,13 @@ class CharFragment : Fragment() {
 
         init()
 
+        with(viewModel) {
 
-
-        viewModel.char.observe(viewLifecycleOwner) {
-            characterAdapter.submitList(it)
+            Log.d("ViewModelFragment", "im her")
+            char.observe(viewLifecycleOwner) { char ->
+                    characterAdapter.submitList(char)
+            }
         }
-
     }
 
     private fun init() = with(binding) {

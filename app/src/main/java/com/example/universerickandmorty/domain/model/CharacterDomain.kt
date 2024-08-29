@@ -3,7 +3,6 @@ package com.example.universerickandmorty.domain.model
 import android.os.Parcelable
 import com.example.universerickandmorty.data.dto.StatusImg
 import kotlinx.parcelize.Parcelize
-import javax.inject.Inject
 
 @Parcelize
 class CharacterDomain(
