@@ -28,13 +28,16 @@ class CharFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        init()
+
 
         with(viewModel) {
+            init()
+            loadCharacterItem()
 
             Log.d("ViewModelFragment", "im her")
             char.observe(viewLifecycleOwner) { char ->
                     characterAdapter.submitList(char)
+                Log.d("ViewModelFragment", "${char}")
             }
         }
     }
