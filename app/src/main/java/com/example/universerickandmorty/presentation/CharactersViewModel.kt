@@ -4,15 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.universerickandmorty.domain.interactor.CharacterInteractorImpl
+import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers.io
 
-class CharactersViewModel (private val characterInteractor: CharacterInteractorImpl): ViewModel() {
-
-
-
+class CharactersViewModel(private val characterInteractor: ICharacterInteractor) : ViewModel() {
 
     private val _char = MutableLiveData<List<CharacterModel>>()
     val char: LiveData<List<CharacterModel>>
@@ -36,14 +33,8 @@ class CharactersViewModel (private val characterInteractor: CharacterInteractorI
         onCleared()
     }
 
-
-
-
     override fun onCleared() {
         super.onCleared()
         dispose.clear()
     }
-
-
-
 }
