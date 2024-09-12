@@ -5,6 +5,7 @@ plugins {
 
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-android")
     id("kotlin-kapt")
 
 }
@@ -57,6 +58,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("com.google.code.gson:gson:2.10.1")
 
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
@@ -72,9 +74,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-
-    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
-
+    
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
 

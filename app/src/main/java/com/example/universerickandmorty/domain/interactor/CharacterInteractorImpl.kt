@@ -4,9 +4,9 @@ import com.example.universerickandmorty.data.CharacterRepository
 import com.example.universerickandmorty.presentation.CharacterModel
 import io.reactivex.Single
 
-class CharacterInteractorImpl (private val characterRepository: CharacterRepository) : ICharacterInteractor{
-
-
+class CharacterInteractorImpl (
+    private val characterRepository: CharacterRepository
+) : ICharacterInteractor{
 
     override fun getCharacters(): Single<List<CharacterModel>> {
         return characterRepository.getCharactersRepository()
@@ -22,7 +22,6 @@ class CharacterInteractorImpl (private val characterRepository: CharacterReposit
                 }
             }
     }
-
 
 
 }

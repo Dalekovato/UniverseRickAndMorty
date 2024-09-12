@@ -1,7 +1,6 @@
 package com.example.universerickandmorty.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,17 +27,17 @@ class CharFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        init()
 
         with(viewModel) {
-            init()
+
             loadCharacterItem()
 
-            Log.d("ViewModelFragment", "im her")
-            char.observe(viewLifecycleOwner) { char ->
-                    characterAdapter.submitList(char)
-                Log.d("ViewModelFragment", "${char}")
+
+            char.observe(viewLifecycleOwner){
+                characterAdapter.submitList(it)
             }
+
         }
     }
 

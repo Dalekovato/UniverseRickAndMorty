@@ -1,10 +1,10 @@
 package com.example.universerickandmorty.presentation
 
 import android.graphics.PorterDuff
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -23,18 +23,20 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
         fun bind(model: CharacterModel) = with(binding) {
 
             Glide // для загрузки фото
-                .with(binding.root.context)
+                .with(imgPhoto.context)
                 .load(model.imgPhoto)
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
                 .into(imgPhoto)
 
             tvName.text = model.tvName
             tvStatus.text = model.tvStatus.value
-            tvSpecies.text = model.tvSpecies
+             tvSpecies.text = model.tvSpecies
 
 
             when (model.tvStatus) {
-                StatusImg.ALIVE -> imgStatus.setColorFilter(R.color.green, PorterDuff.Mode.MULTIPLY)
-                StatusImg.DEAD -> imgStatus.setColorFilter(R.color.red, PorterDuff.Mode.MULTIPLY)
+                StatusImg.ALIVE -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_alive))
+                StatusImg.DEAD -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_dead))
                 StatusImg.UNKNOWN -> imgStatus.isVisible = false
 
             }

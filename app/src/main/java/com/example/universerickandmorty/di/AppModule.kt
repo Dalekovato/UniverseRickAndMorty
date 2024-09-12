@@ -4,7 +4,6 @@ import com.example.universerickandmorty.data.CharacterRepository
 import com.example.universerickandmorty.data.ICharacterApiService
 import com.example.universerickandmorty.domain.interactor.CharacterInteractorImpl
 import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
-import com.example.universerickandmorty.helper.Constants
 import com.example.universerickandmorty.presentation.CharactersViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -15,9 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 private val networkModule = module {
 
-    single (named(API)){
+    single(named(API)) {
         Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
@@ -29,11 +28,15 @@ private val networkModule = module {
         CharacterRepository(get())
     }
 
+
+
     factory <ICharacterInteractor>{
         CharacterInteractorImpl(get())
     }
 
 }
+
+
 
 private val viewModel = module {
 
@@ -47,8 +50,5 @@ val appModules = listOf(
 )
 
 
-
-
-
-
 private const val API = "API"
+private const val BASE_URL = "https://rickandmortyapi.com/api/"

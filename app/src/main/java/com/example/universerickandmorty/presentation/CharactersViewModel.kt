@@ -7,30 +7,27 @@ import androidx.lifecycle.ViewModel
 import com.example.universerickandmorty.domain.interactor.ICharacterInteractor
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers.io
+import io.reactivex.schedulers.Schedulers
 
-class CharactersViewModel(private val characterInteractor: ICharacterInteractor) : ViewModel() {
+class CharactersViewModel(
+    private val characterInteractor: ICharacterInteractor
+) : ViewModel() {
 
     private val _char = MutableLiveData<List<CharacterModel>>()
-    val char: LiveData<List<CharacterModel>>
-        get() = _char
+    val char: LiveData<List<CharacterModel>> = _char
 
     private val dispose = CompositeDisposable()
 
     fun loadCharacterItem(){
         characterInteractor.getCharacters()
-            .subscribeOn(io())
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({char ->
-                _char.postValue(char)
-                Log.d("CharacerViewModel", "Error ${_char}")
+            .subscribe({
+                _char.postValue(it)
             },{
-                Log.d("CharacerViewModel", "Error ${char}")
+                Log.d("CharacterViewModel","ERORORORORORO")
             }).also { dispose.add(it) }
-
-        Log.d("CharacerViewModel", "${char}")
-
-        onCleared()
+        
     }
 
     override fun onCleared() {

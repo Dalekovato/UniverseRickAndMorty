@@ -29,16 +29,6 @@
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imgStatus"-->
-<!--        android:layout_width="18dp"-->
-<!--        android:layout_height="18dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        app:tint="@color/green"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imgPhoto"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tvName"-->
-<!--        app:srcCompat="@drawable/ic_alive" />-->
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgStatus"
@@ -46,10 +36,8 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:tint="@color/green"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
-        app:srcCompat="@drawable/ic_alive" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
         android:id="@+id/tvStatus"

@@ -1,19 +1,20 @@
 package com.example.universerickandmorty.data
 
+import com.example.universerickandmorty.data.dto.CharacterDto
 import com.example.universerickandmorty.domain.mapper.CharacterMapper
 import com.example.universerickandmorty.domain.model.CharacterDomain
+import com.google.gson.Gson
 import io.reactivex.Single
 
-class CharacterRepository (private val serviceApiCharacter: ICharacterApiService) {
-
-
-
+class CharacterRepository (
+    private val serviceApiCharacter: ICharacterApiService
+) {
 
     fun getCharactersRepository(): Single<List<CharacterDomain>> {
 
         return serviceApiCharacter.getCharacter()
             .map {
-                CharacterMapper(it).character
+                 CharacterMapper(it).character
             }
 
 //        val json1 = "[\n" +
@@ -44,6 +45,7 @@ class CharacterRepository (private val serviceApiCharacter: ICharacterApiService
 //                "    // ...\n" +
 //                "  ]"
 //
+//
 //        val json2 = "[]"
 //
 //        val mockChar: Array<CharacterDto> = Gson().fromJson(
@@ -53,8 +55,5 @@ class CharacterRepository (private val serviceApiCharacter: ICharacterApiService
 //        return Single.just(CharacterMapper(mockChar.toList()).character)
 
     }
-
-
-
 
 }
