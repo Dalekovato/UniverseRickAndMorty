@@ -5,9 +5,9 @@ import com.example.universerickandmorty.data.dto.CharacterDto
 class CharacterMapper(characterDto: List<CharacterDto?>?) {
 
     val character by lazy {
-        characterDto?.filterNotNull()?.map {
-            CharMapper(it).char
-        }?: emptyList()
+        characterDto?.mapNotNull {
+            it?.let { CharMapper(it).char }
+        } ?: emptyList()
 
     }
 }
