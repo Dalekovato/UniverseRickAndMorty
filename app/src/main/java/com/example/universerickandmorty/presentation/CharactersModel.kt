@@ -2,7 +2,7 @@ package com.example.universerickandmorty.presentation
 
 import com.example.universerickandmorty.data.dto.StatusImg
 
-data class CharacterModel (
+data class CharactersModel (
 
     val imgPhoto: String,
     val tvName:String ,

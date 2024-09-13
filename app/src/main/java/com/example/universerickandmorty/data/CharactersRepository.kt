@@ -1,14 +1,14 @@
 package com.example.universerickandmorty.data
 
 import com.example.universerickandmorty.domain.mapper.CharactersMapper
-import com.example.universerickandmorty.domain.model.CharacterDomain
+import com.example.universerickandmorty.domain.model.CharactersDomain
 import io.reactivex.Single
 
-class CharacterRepository (
-    private val serviceApiCharacter: ICharacterApiService
+class CharactersRepository (
+    private val serviceApiCharacter: ICharactersApiService
 ) {
 
-    fun getCharactersRepository(): Single<List<CharacterDomain>> {
+    fun getCharactersRepository(): Single<List<CharactersDomain>> {
 
         return serviceApiCharacter.getCharacter()
             .map {

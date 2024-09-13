@@ -13,13 +13,14 @@ import com.example.universerickandmorty.R
 import com.example.universerickandmorty.data.dto.StatusImg
 import com.example.universerickandmorty.databinding.CharacterItemBinding
 
-class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Comparator()) {
+class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>(Comparator()) {
+
 
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val binding = CharacterItemBinding.bind(view)
 
-        fun bind(model: CharacterModel) = with(binding) {
+        fun bind(model: CharactersModel) = with(binding) {
 
             Glide // для загрузки фото
                 .with(imgPhoto.context)
@@ -31,28 +32,27 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
 
             tvName.text = model.tvName
             tvStatus.text = model.tvStatus.value
-             tvSpecies.text = model.tvSpecies
+            tvSpecies.text = model.tvSpecies
 
 
             when (model.tvStatus) {
                 StatusImg.ALIVE -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_alive))
                 StatusImg.DEAD -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_dead))
                 StatusImg.UNKNOWN -> imgStatus.isVisible = false
-
             }
 
         }
 
     }
 
-    class Comparator : DiffUtil.ItemCallback<CharacterModel>() {
+    class Comparator : DiffUtil.ItemCallback<CharactersModel>() {
 
-        override fun areItemsTheSame(oldItem: CharacterModel, newItem: CharacterModel): Boolean {
+        override fun areItemsTheSame(oldItem: CharactersModel, newItem: CharactersModel): Boolean {
             //if bd add .id
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: CharacterModel, newItem: CharacterModel): Boolean {
+        override fun areContentsTheSame(oldItem: CharactersModel, newItem: CharactersModel): Boolean {
             return oldItem == newItem
         }
     }
@@ -65,5 +65,7 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(getItem(position))
     }
+
+
 
 }

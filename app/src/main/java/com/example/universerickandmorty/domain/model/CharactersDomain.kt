@@ -5,7 +5,7 @@ import com.example.universerickandmorty.data.dto.StatusImg
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class CharacterDomain(
+class CharactersDomain(
     val id: Int,
     val name: String,
     val status: StatusImg,

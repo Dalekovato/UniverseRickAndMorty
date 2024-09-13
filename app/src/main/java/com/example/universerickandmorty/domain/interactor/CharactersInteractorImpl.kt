@@ -1,18 +1,18 @@
 package com.example.universerickandmorty.domain.interactor
 
-import com.example.universerickandmorty.data.CharacterRepository
-import com.example.universerickandmorty.presentation.CharacterModel
+import com.example.universerickandmorty.data.CharactersRepository
+import com.example.universerickandmorty.presentation.CharactersModel
 import io.reactivex.Single
 
-class CharacterInteractorImpl (
-    private val characterRepository: CharacterRepository
-) : ICharacterInteractor{
+class CharactersInteractorImpl (
+    private val characterRepository: CharactersRepository
+) : ICharactersInteractor{
 
-    override fun getCharacters(): Single<List<CharacterModel>> {
+    override fun getCharacters(): Single<List<CharactersModel>> {
         return characterRepository.getCharactersRepository()
             .map{
                 it.map { characterDomain->
-                    CharacterModel(
+                    CharactersModel(
                         imgPhoto = characterDomain.image ,
                         tvName = characterDomain.name,
                         tvStatus = characterDomain.status,

@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.universerickandmorty.databinding.FragmentCharBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CharFragment : Fragment() {
+class CharactersFragment : Fragment() {
 
     private lateinit var binding: FragmentCharBinding
     private val viewModel: CharactersViewModel by viewModel()
-    private lateinit var characterAdapter: CharacterAdapter
+    private lateinit var characterAdapter: CharactersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,19 +33,16 @@ class CharFragment : Fragment() {
 
             loadCharacterItem()
 
-
-            char.observe(viewLifecycleOwner){
+            char.observe(viewLifecycleOwner) {
                 characterAdapter.submitList(it)
             }
-
         }
     }
 
     private fun init() = with(binding) {
-        characterAdapter = CharacterAdapter()
+        characterAdapter = CharactersAdapter()
         rcChar.layoutManager = LinearLayoutManager(activity)
         rcChar.adapter = characterAdapter
-
     }
 
 }

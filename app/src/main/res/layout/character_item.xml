@@ -23,8 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:hint="@string/hint_name"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +47,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/hint_status"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imgStatus"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -57,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/hint_specied"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/tvStatus"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
