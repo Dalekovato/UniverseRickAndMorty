@@ -41,6 +41,7 @@ class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>
                 StatusImg.UNKNOWN -> imgStatus.isVisible = false
             }
 
+
         }
 
     }
