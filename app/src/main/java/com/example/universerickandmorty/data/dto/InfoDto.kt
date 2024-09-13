@@ -1,10 +1,12 @@
 package com.example.universerickandmorty.data.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class InfoDto(
 
-    val count: Int = 0,
-    val next: String = "",
-    val pages: Int = 0,
-    val prev: Any? = null
+    @SerializedName("count")val count: Int ?,
+    @SerializedName("next")val next: String ?,
+    @SerializedName("pages")val pages: Int ?,
+    @SerializedName("prev")val prev: String?
 
 )

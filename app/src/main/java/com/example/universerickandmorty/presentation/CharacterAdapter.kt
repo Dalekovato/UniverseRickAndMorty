@@ -1,6 +1,5 @@
 package com.example.universerickandmorty.presentation
 
-import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +24,7 @@ class CharacterAdapter : ListAdapter<CharacterModel, CharacterAdapter.Holder>(Co
             Glide // для загрузки фото
                 .with(imgPhoto.context)
                 .load(model.imgPhoto)
+                .circleCrop()
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_background)
                 .into(imgPhoto)

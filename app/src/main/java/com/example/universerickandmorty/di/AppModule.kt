@@ -15,6 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private val networkModule = module {
 
     single(named(API)) {
+
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -51,4 +52,5 @@ val appModules = listOf(
 
 
 private const val API = "API"
+private const val LOG_INTERCEPTOR = "LOG_INTERCEPTOR"
 private const val BASE_URL = "https://rickandmortyapi.com/api/"

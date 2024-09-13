@@ -68,6 +68,8 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
 
 
+    implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
+
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     implementation("io.insert-koin:koin-android:3.5.0")

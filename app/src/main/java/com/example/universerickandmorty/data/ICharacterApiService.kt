@@ -7,7 +7,7 @@ import retrofit2.http.GET
 
 interface ICharacterApiService {
 
-    @GET("character/1,183")
-    fun getCharacter(): Single<List<CharacterDto>>
+    @GET("character")
+    fun getCharacter(): Single<CharacterRespopnse>
 
 }

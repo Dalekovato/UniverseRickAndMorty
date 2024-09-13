@@ -1,9 +1,7 @@
 package com.example.universerickandmorty.data
 
-import com.example.universerickandmorty.data.dto.CharacterDto
-import com.example.universerickandmorty.domain.mapper.CharacterMapper
+import com.example.universerickandmorty.domain.mapper.CharactersMapper
 import com.example.universerickandmorty.domain.model.CharacterDomain
-import com.google.gson.Gson
 import io.reactivex.Single
 
 class CharacterRepository (
@@ -14,7 +12,7 @@ class CharacterRepository (
 
         return serviceApiCharacter.getCharacter()
             .map {
-                 CharacterMapper(it).character
+                 CharactersMapper(it.results).character
             }
 
 //        val json1 = "[\n" +
