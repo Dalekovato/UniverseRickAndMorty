@@ -5,4 +5,10 @@
     <string name="hint_name">Name</string>
     <string name="hint_status">status</string>
     <string name="hint_specied">specied</string>
+    <string name="type">Type:</string>
+    <string name="gender">Gender:\n</string>
+    <string name="origin">Origin:</string>
+    <string name="location">Location:</string>
+    <string name="episode">Episode:</string>
+    <string name="created">Created:</string>
 </resources>

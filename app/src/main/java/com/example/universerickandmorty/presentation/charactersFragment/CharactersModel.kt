@@ -1,4 +1,4 @@
-package com.example.universerickandmorty.presentation
+package com.example.universerickandmorty.presentation.charactersFragment
 
 import com.example.universerickandmorty.data.dto.StatusImg
 

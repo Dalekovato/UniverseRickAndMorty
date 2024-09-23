@@ -1,4 +1,4 @@
-package com.example.universerickandmorty.presentation
+package com.example.universerickandmorty.presentation.charactersFragment
 
 import android.view.LayoutInflater
 import android.view.View
@@ -67,6 +67,11 @@ class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>
         holder.bind(getItem(position))
     }
 
+
+    //TODO Временный фикс , найти как исправить
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
 
 }

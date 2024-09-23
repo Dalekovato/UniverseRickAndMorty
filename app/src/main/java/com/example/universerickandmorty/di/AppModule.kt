@@ -4,7 +4,7 @@ import com.example.universerickandmorty.data.CharactersRepository
 import com.example.universerickandmorty.data.ICharactersApiService
 import com.example.universerickandmorty.domain.interactor.CharactersInteractorImpl
 import com.example.universerickandmorty.domain.interactor.ICharactersInteractor
-import com.example.universerickandmorty.presentation.CharactersViewModel
+import com.example.universerickandmorty.presentation.charactersFragment.CharactersViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel

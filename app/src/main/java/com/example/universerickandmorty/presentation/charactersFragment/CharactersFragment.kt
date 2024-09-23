@@ -1,4 +1,4 @@
-package com.example.universerickandmorty.presentation
+package com.example.universerickandmorty.presentation.charactersFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
