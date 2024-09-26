@@ -12,7 +12,7 @@ class CharacterApp: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger(Level.NONE)
+            androidLogger(Level.NONE) // Глянь уровни логирования , что покавзывают PrintLogger(Level. ... )
             androidContext(this@CharacterApp)
             modules(appModules)
         }

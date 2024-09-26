@@ -1,13 +1,15 @@
-package com.example.universerickandmorty.domain.mapper
+package com.example.universerickandmorty.domain.mapper.network
 
-import com.example.universerickandmorty.data.dto.CharacterDto
-import com.example.universerickandmorty.data.dto.StatusImg
-import com.example.universerickandmorty.domain.model.CharactersDomain
+import com.example.universerickandmorty.data.network.dto.CharacterDto
+import com.example.universerickandmorty.data.network.dto.StatusImg
+import com.example.universerickandmorty.domain.mapper.LocationMapper
+import com.example.universerickandmorty.domain.mapper.OriginMapepr
+import com.example.universerickandmorty.domain.model.CharactersDomainApi
 
-class CharacterMapper(characterDto: CharacterDto) {
+class CharacterMapperApi(characterDto: CharacterDto) {
 
     val char by lazy {
-        CharactersDomain(
+        CharactersDomainApi(
             id = characterDto.id ?: 0,
             name = characterDto.name.orEmpty(),
             status = characterDto.status ?: StatusImg.UNKNOWN,

@@ -1,6 +1,6 @@
 package com.example.universerickandmorty.domain.mapper
 
-import com.example.universerickandmorty.data.dto.OriginDto
+import com.example.universerickandmorty.data.network.dto.OriginDto
 import com.example.universerickandmorty.domain.model.OriginDomain
 
 class OriginMapepr(originDto: OriginDto?) {

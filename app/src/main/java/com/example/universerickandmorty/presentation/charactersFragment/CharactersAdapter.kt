@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.universerickandmorty.R
-import com.example.universerickandmorty.data.dto.StatusImg
+import com.example.universerickandmorty.data.network.dto.StatusImg
 import com.example.universerickandmorty.databinding.CharacterItemBinding
 
 class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>(Comparator()) {

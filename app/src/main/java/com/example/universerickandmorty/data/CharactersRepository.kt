@@ -1,18 +1,25 @@
 package com.example.universerickandmorty.data
 
-import com.example.universerickandmorty.domain.mapper.CharactersMapper
-import com.example.universerickandmorty.domain.model.CharactersDomain
+import com.example.universerickandmorty.data.database.CharactersEntity
+import com.example.universerickandmorty.data.database.ICharactersDao
+import com.example.universerickandmorty.data.network.ICharactersApiService
+import com.example.universerickandmorty.domain.mapper.database.CharactersMapperDataBase
+import com.example.universerickandmorty.domain.mapper.network.CharactersMapperApi
+import com.example.universerickandmorty.domain.model.CharactersDomainApi
+import com.example.universerickandmorty.domain.model.CharactersDomainDataBase
 import io.reactivex.Single
 
 class CharactersRepository (
-    private val serviceApiCharacter: ICharactersApiService
+    private val serviceApiCharacter: ICharactersApiService,
+    private val serviceDataBaseCharacter: ICharactersDao
+
 ) {
 
-    fun getCharactersRepository(): Single<List<CharactersDomain>> {
 
+    fun getCharactersRepositoryApi(): Single<List<CharactersDomainApi>> {
         return serviceApiCharacter.getCharacter()
             .map {
-                 CharactersMapper(it.results).character
+                 CharactersMapperApi(it.results).character
             }
 
 //        val json1 = "[\n" +
@@ -52,6 +59,13 @@ class CharactersRepository (
 //
 //        return Single.just(CharacterMapper(mockChar.toList()).character)
 
+    }
+
+    fun getCharactersRepositoryDataBase(): Single<List<CharactersDomainDataBase>> {
+        return serviceDataBaseCharacter.loadAllCharacters()
+            .map {
+                CharactersMapperDataBase(it).character
+            }
     }
 
 }

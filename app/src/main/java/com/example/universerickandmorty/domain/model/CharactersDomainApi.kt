@@ -1,11 +1,11 @@
 package com.example.universerickandmorty.domain.model
 
 import android.os.Parcelable
-import com.example.universerickandmorty.data.dto.StatusImg
+import com.example.universerickandmorty.data.network.dto.StatusImg
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class CharactersDomain(
+class CharactersDomainApi(
     val id: Int,
     val name: String,
     val status: StatusImg,

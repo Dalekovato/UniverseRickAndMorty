@@ -1,6 +1,6 @@
 package com.example.universerickandmorty.domain.mapper
 
-import com.example.universerickandmorty.data.dto.InfoDto
+import com.example.universerickandmorty.data.network.dto.InfoDto
 import com.example.universerickandmorty.domain.model.InfoDomain
 
 class InfoMapper(infoDto: InfoDto?) {

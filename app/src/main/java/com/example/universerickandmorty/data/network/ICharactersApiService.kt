@@ -1,6 +1,6 @@
-package com.example.universerickandmorty.data
+package com.example.universerickandmorty.data.network
 
-import com.example.universerickandmorty.data.dto.CharacterRespopnse
+import com.example.universerickandmorty.data.network.dto.CharacterRespopnse
 import io.reactivex.Single
 import retrofit2.http.GET
 

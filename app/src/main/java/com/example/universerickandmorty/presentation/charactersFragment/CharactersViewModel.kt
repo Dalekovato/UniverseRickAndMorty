@@ -19,7 +19,7 @@ class CharactersViewModel(
     private val dispose = CompositeDisposable()
 
     fun loadCharacterItem(){
-        characterInteractor.getCharacters()
+        characterInteractor.getCharactersApi()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
