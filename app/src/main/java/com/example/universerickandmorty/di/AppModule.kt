@@ -48,7 +48,7 @@ private val dataModule = module {
 
     single(named (DATA_BASE)) {
         CharactersDataBase
-            .getInstance(get()) //androidApplication() or get() ?
+            .getInstance(androidApplication()) //androidApplication() or get() ?
     }
 
     single (createdAtStart = false){get<CharactersDataBase>(named(DATA_BASE)).charactersDao()}
@@ -56,8 +56,6 @@ private val dataModule = module {
 }
 
 private val compositeModule = module {
-
-    includes(networkModule, dataModule )
 
     single {
         CharactersRepository(get(),get())
