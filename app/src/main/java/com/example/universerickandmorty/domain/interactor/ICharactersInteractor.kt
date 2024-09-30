@@ -1,6 +1,6 @@
 package com.example.universerickandmorty.domain.interactor
 
-import com.example.universerickandmorty.data.database.CharactersEntity
+import com.example.universerickandmorty.data.database.dtoDataBase.CharactersEntity
 import com.example.universerickandmorty.presentation.charactersFragment.CharactersModel
 import io.reactivex.Single
 

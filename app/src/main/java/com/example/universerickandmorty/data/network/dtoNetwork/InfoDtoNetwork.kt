@@ -1,8 +1,8 @@
-package com.example.universerickandmorty.data.network.dto
+package com.example.universerickandmorty.data.network.dtoNetwork
 
 import com.google.gson.annotations.SerializedName
 
-data class InfoDto(
+data class InfoDtoNetwork(
 
     @SerializedName("count")val count: Int ?,
     @SerializedName("next")val next: String ?,

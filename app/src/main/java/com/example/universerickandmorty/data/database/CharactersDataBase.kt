@@ -4,12 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.universerickandmorty.data.database.dtoDataBase.CharactersEntity
+import com.example.universerickandmorty.data.database.dtoDataBase.ConvertersEpisode
+import com.example.universerickandmorty.data.database.dtoDataBase.LocationConverter
+import com.example.universerickandmorty.data.database.dtoDataBase.OriginConverter
 
 @Database(
     entities = [CharactersEntity::class],
     version = 1,
     exportSchema = true
 )
+@TypeConverters(OriginConverter::class, LocationConverter::class, ConvertersEpisode::class)
 abstract class CharactersDataBase:RoomDatabase() {
 
     abstract fun charactersDao():ICharactersDao

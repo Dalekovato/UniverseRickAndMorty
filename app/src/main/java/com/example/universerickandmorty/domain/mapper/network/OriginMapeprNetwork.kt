@@ -1,9 +1,9 @@
-package com.example.universerickandmorty.domain.mapper
+package com.example.universerickandmorty.domain.mapper.network
 
-import com.example.universerickandmorty.data.network.dto.OriginDto
+import com.example.universerickandmorty.data.network.dtoNetwork.OriginDtoNetwork
 import com.example.universerickandmorty.domain.model.OriginDomain
 
-class OriginMapepr(originDto: OriginDto?) {
+class OriginMapeprNetwork(originDto: OriginDtoNetwork?) {
 
 
     val orig by lazy {

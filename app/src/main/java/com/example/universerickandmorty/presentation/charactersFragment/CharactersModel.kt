@@ -1,12 +1,12 @@
 package com.example.universerickandmorty.presentation.charactersFragment
 
-import com.example.universerickandmorty.data.network.dto.StatusImg
+import com.example.universerickandmorty.data.network.dtoNetwork.StatusImgNetwork
 
 data class CharactersModel (
 
     val imgPhoto: String,
     val tvName:String,
-    val tvStatus: StatusImg,
+    val tvStatus: StatusImgNetwork,
     val tvSpecies: String
 
 )

@@ -1,9 +1,9 @@
-package com.example.universerickandmorty.domain.mapper
+package com.example.universerickandmorty.domain.mapper.network
 
-import com.example.universerickandmorty.data.network.dto.LocationDto
+import com.example.universerickandmorty.data.network.dtoNetwork.LocationDtoNetwork
 import com.example.universerickandmorty.domain.model.LocationDomain
 
-class LocationMapper(locationDto: LocationDto?) {
+class LocationMapperNetwork(locationDto: LocationDtoNetwork?) {
 
     val loc by lazy {
         LocationDomain(

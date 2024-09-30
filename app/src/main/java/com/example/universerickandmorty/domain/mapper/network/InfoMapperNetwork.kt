@@ -1,9 +1,9 @@
-package com.example.universerickandmorty.domain.mapper
+package com.example.universerickandmorty.domain.mapper.network
 
-import com.example.universerickandmorty.data.network.dto.InfoDto
+import com.example.universerickandmorty.data.network.dtoNetwork.InfoDtoNetwork
 import com.example.universerickandmorty.domain.model.InfoDomain
 
-class InfoMapper(infoDto: InfoDto?) {
+class InfoMapperNetwork(infoDto: InfoDtoNetwork?) {
 
     val info by lazy {
 

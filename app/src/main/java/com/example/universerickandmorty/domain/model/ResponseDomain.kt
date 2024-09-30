@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class ResponseDomain (
 
     val info: InfoDomain,
-    val listCharacters: List<CharactersDomainApi>,
+    val listCharacters: List<CharactersDomain>,
 
     ): Parcelable
 

@@ -1,7 +1,8 @@
 package com.example.universerickandmorty.di
 
-import com.example.universerickandmorty.data.CharactersRepository
+import com.example.universerickandmorty.data.network.CharactersApiRepository
 import com.example.universerickandmorty.data.database.CharactersDataBase
+import com.example.universerickandmorty.data.database.CharactersDataBaseRepository
 import com.example.universerickandmorty.data.network.ICharactersApiService
 import com.example.universerickandmorty.domain.interactor.CharactersInteractorImpl
 import com.example.universerickandmorty.domain.interactor.ICharactersInteractor
@@ -10,12 +11,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.module.dsl.singleOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.sin
 
 private val networkModule = module {
 
@@ -32,15 +33,9 @@ private val networkModule = module {
 
     single { get<Retrofit>(named(API)).create(ICharactersApiService::class.java) }
 
-//    single {
-//        CharactersRepository(get())
-//    }
-//
-//
-//
-//    factory<ICharactersInteractor> {
-//        CharactersInteractorImpl(get())
-//    }
+    single {
+        CharactersApiRepository(get())
+    }
 
 }
 
@@ -48,21 +43,32 @@ private val dataModule = module {
 
     single(named (DATA_BASE)) {
         CharactersDataBase
-            .getInstance(androidApplication()) //androidApplication() or get() ?
+            .getInstance(androidApplication())
     }
 
     single (createdAtStart = false){get<CharactersDataBase>(named(DATA_BASE)).charactersDao()}
+
+    single {
+        CharactersDataBaseRepository(get ())
+    }
 
 }
 
 private val compositeModule = module {
 
+//    single {
+//        CharactersApiRepository(get())
+//    }
+//    single {
+//        CharactersDataBaseRepository(get())
+//    }
+
     single {
-        CharactersRepository(get(),get())
+        CharactersInteractorImpl(get(),get())
     }
 
     factory<ICharactersInteractor> {
-        CharactersInteractorImpl(get())
+        CharactersInteractorImpl(get(),get())
     }
 
 }

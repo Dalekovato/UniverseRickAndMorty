@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.universerickandmorty.R
-import com.example.universerickandmorty.data.network.dto.StatusImg
+import com.example.universerickandmorty.data.network.dtoNetwork.StatusImgNetwork
 import com.example.universerickandmorty.databinding.CharacterItemBinding
 
 class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>(Comparator()) {
@@ -36,9 +36,9 @@ class CharactersAdapter : ListAdapter<CharactersModel, CharactersAdapter.Holder>
 
 
             when (model.tvStatus) {
-                StatusImg.ALIVE -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_alive))
-                StatusImg.DEAD -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_dead))
-                StatusImg.UNKNOWN -> imgStatus.isVisible = false
+                StatusImgNetwork.ALIVE -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_alive))
+                StatusImgNetwork.DEAD -> imgStatus.setImageDrawable(ContextCompat.getDrawable(imgStatus.context, R.drawable.ic_dead))
+                StatusImgNetwork.UNKNOWN -> imgStatus.isVisible = false
             }
 
 
