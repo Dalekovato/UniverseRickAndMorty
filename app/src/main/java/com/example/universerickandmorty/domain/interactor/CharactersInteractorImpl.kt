@@ -1,9 +1,8 @@
 package com.example.universerickandmorty.domain.interactor
 
 import com.example.universerickandmorty.data.database.CharactersDataBaseRepository
-import com.example.universerickandmorty.data.network.CharactersApiRepository
 import com.example.universerickandmorty.data.database.dtoDataBase.CharactersEntity
-import com.example.universerickandmorty.domain.mapper.dataBase.fromDataBase.CharactersMapperDataBaseFrom
+import com.example.universerickandmorty.data.network.CharactersApiRepository
 import com.example.universerickandmorty.presentation.charactersFragment.CharactersModel
 import io.reactivex.Single
 
@@ -14,11 +13,13 @@ class CharactersInteractorImpl (
 
     override fun getCharactersApi(): Single<List<CharactersModel>> {
 
-        val listCharacter: Single<List<CharactersModel>> = characterRepository.getCharactersRepositoryApi()
-            .map{
-                it.map { characterDomain->
+        val listChar = characterRepository.getCharactersRepositoryApi()
+
+        val listCharacter: Single<List<CharactersModel>> = listChar
+            .map {
+                it.map { characterDomain ->
                     CharactersModel(
-                        imgPhoto = characterDomain.image ,
+                        imgPhoto = characterDomain.image,
                         tvName = characterDomain.name,
                         tvStatus = characterDomain.status,
                         tvSpecies = characterDomain.species
@@ -27,10 +28,14 @@ class CharactersInteractorImpl (
                 }
             }
 
-        charactersDataBase.saveCharacterRepositoryDataBase(characterRepository.getCharactersRepositoryApi())
+        charactersDataBase.saveCharacterRepositoryDataBase(listChar)
 
         return listCharacter
+
     }
+
+
+
 
     override fun getCharactersDataBase(): Single<List<CharactersEntity>> {
         return charactersDataBase.getCharactersRepositoryDataBase()
